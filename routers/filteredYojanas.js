@@ -80,6 +80,7 @@ router.post('/', async(req,res) => {
        console.log('FinaljsonObject')
        console.log(FinaljsonObject)
        res.status(201).send(FinaljsonObject)
+       return
   } else {
     console.log("Category Is Selected")
    
@@ -98,6 +99,7 @@ router.post('/', async(req,res) => {
  const FinalObject = FinalStringArray.map(JSON.parse)
  console.log(FinalObject)
  res.status(201).send(FinalObject)
+ return
     }
     
     else {
@@ -159,7 +161,7 @@ router.post('/', async(req,res) => {
      console.log('FinaljsonObject')
      console.log(FinaljsonObject)
      res.status(201).send(FinaljsonObject)
- 
+    return
 } }
 
     res.status(201).send('DEFAULT RETURN')
