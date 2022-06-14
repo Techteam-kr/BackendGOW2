@@ -41,7 +41,8 @@ router.post('/', async(req,res) => {
       let agefilteroutput = []
       for(let i = 0; i<data.length; i++ ){
           
-          if(data[i].ageLowerLimit  <=  inputData.ageLowerLimit && data[i].ageHigherLimit >= inputData.ageHigherLimit){
+          //if(data[i].ageLowerLimit  <=  inputData.ageLowerLimit && data[i].ageHigherLimit >= inputData.ageHigherLimit){
+            if(data[i].ageLowerLimit  <=  inputData.ageHigherLimit){
                agefilteroutput.push(data[i])
           }
       }
@@ -137,7 +138,8 @@ router.post('/', async(req,res) => {
     let agefilteroutput = []
     for(let i = 0; i<FinalObject.length; i++ ){
         
-        if(FinalObject[i].ageLowerLimit <=  inputData.ageLowerLimit ){
+        if( FinalObject[i].ageLowerLimit <=  inputData.ageHigherLimit && FinalObject[i].ageHigherLimit >= inputData.ageLowerLimit){
+        //  if(FinalObject[i].ageLowerLimit  <=  inputData.ageHigherLimit && FinalObject[i].ageHigherLimit >= inputData.ageHigherLimit){
              agefilteroutput.push(FinalObject[i])
         }
     }
@@ -158,8 +160,8 @@ router.post('/', async(req,res) => {
     const FinaljsonString = new Set(finaljson.map(JSON.stringify))
     const FinaljsonStringArray = Array.from(FinaljsonString)
      const FinaljsonObject = FinaljsonStringArray.map(JSON.parse)
-     console.log('FinaljsonObject')
-     console.log(FinaljsonObject)
+     //console.log('FinaljsonObject')
+    // console.log(FinaljsonObject)
      res.status(201).send(FinaljsonObject)
     return
 } }

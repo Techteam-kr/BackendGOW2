@@ -10,49 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // var mongoose = require("mongoose");
 // mongoose.Promise = global.Promise;
-// mongoose.connect("mongodb://localhost:27017/applicants");
+// mongoose.connect("mongodb://localhost:27017/newdb", )
+// .then((result) => {console.log("Connected to MongoDB")})
+// .catch((err) => {console.log("Failed to Connect to MongoDB in app.js")});
 
-// aadharNumber: "123456754"
-// accountNumber: "4553"
-// addressLineOne: "Home"
-// addressLineTwo: "Home"
-// age: "28"
-// bankName: "HDFC"
-// bplNumber: ""
-// branchName: ""
-// caste: "2A"
-// fullName: "Arun"
-// gaurdianName: "Arun"
-// gender: "Male"
-// ifscCode: "HDFC000132322"
-// income: "40000"
-// mobileNumber: "9712323133"
-// mobileVerified: false
-// religion: "Hindu"
-// sentOtp: false
-// wardNumber: "1234"
-// var nameSchema = new mongoose.Schema({
-//     aadharNumber: String,
-//     accountNumber: String,
-//     addressLineOne: String,
-//     addressLineTwo: String,
-//     age: String,
-//     bankName: String,
-//     bplNumber: String,
-//     branchName: String,
-//     caste: String,
-//     fullName: String,
-//     gaurdianName: String,
-//     gender: String,
-//     ifscCode: String,
-//     income: String,
-//     mobileNumber: String,
-//     mobileVerified: String,
-//     religion: String,
-//     sentOtp: String,
-//     wardNumber: String
-// });
-// var Users = mongoose.model("Users", nameSchema);
 
 const categoryRouter = require('./routers/category')
 app.use('/category', categoryRouter)
@@ -68,6 +29,13 @@ app.use('/listofYojanas', listofYojanas)
 
 const saveform = require('./routers/saveform')
 app.use('/saveform', saveform)
+
+const inputmobnoRouter = require('./routers/inputmobno')
+app.use('/inputmob', inputmobnoRouter)
+
+const verifyotpRouter = require('./routers/verifyotp')
+app.use('/verifyotp', verifyotpRouter)
+
 
 
 

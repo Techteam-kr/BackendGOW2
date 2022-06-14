@@ -6,25 +6,7 @@ const router = express.Router();
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/applicants");
-// aadharNumber: "123456754"
-// accountNumber: "4553"
-// addressLineOne: "Home"
-// addressLineTwo: "Home"
-// age: "28"
-// bankName: "HDFC"
-// bplNumber: ""
-// branchName: ""
-// caste: "2A"
-// fullName: "Arun"
-// gaurdianName: "Arun"
-// gender: "Male"
-// ifscCode: "HDFC000132322"
-// income: "40000"
-// mobileNumber: "9712323133"
-// mobileVerified: false
-// religion: "Hindu"
-// sentOtp: false
-// wardNumber: "1234"
+
 var nameSchema = new mongoose.Schema({
     aadharNumber: String,
     accountNumber: String,
