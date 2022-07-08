@@ -8,11 +8,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// var mongoose = require("mongoose");
-// mongoose.Promise = global.Promise;
-// mongoose.connect("mongodb://localhost:27017/newdb", )
-// .then((result) => {console.log("Connected to MongoDB")})
-// .catch((err) => {console.log("Failed to Connect to MongoDB in app.js")});
 
 
 const categoryRouter = require('./routers/category')
@@ -36,6 +31,26 @@ app.use('/inputmob', inputmobnoRouter)
 const verifyotpRouter = require('./routers/verifyotp')
 app.use('/verifyotp', verifyotpRouter)
 
+const searchApplicantRouter = require('./routers/searchApplicant')
+app.use('/searchApplicant', searchApplicantRouter)
+
+const updateApplicantionRouter = require('./routers/changeApplicationStatus')
+app.use('/updateApplicantion', updateApplicantionRouter)
+
+const dashboardStatusRouter = require('./routers/dashboardStatus')
+app.use('/dashboardStatus', dashboardStatusRouter)
+
+const searchApplicantMobRouter = require('./routers/searchApplicantMob')
+app.use('/searchApplicantMob', searchApplicantMobRouter)
+
+const getAllApplicantsRouter = require('./routers/getAllApplicants')
+app.use('/getAllApplicants', getAllApplicantsRouter)
+
+const adminLogin = require('./routers/adminlogin')
+app.use('/adminlogin', adminLogin)
+
+const searchForms = require('./routers/searchForms')
+app.use('/searchForms', searchForms)
 
 
 
