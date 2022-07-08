@@ -26,6 +26,29 @@ router.post('/', async(req,res) => {
     IdentifierField = req.body.identifierfield;
 
 
+
+    if(YojanaName == "All" && ApplicationStatus == "All" && IdentifierField == "All"){
+        //When none of the fields are selected
+        console.log('NONE OF THE FILTERS ARE SELECTED')
+        Users.find({}, function (err, docs){
+
+            if (err){
+                console.log(err);
+                res.status(450).send('Error')
+                return
+            }
+            else {
+                console.log(docs)
+                res.status(450).send(docs)
+                return
+            }
+        });
+
+        return
+
+    }
+
+
     //IF USER SElects only YOJANA
     if(ApplicationStatus == "All" && IdentifierField == "All"){
         //res.status(201).send("Only Yojana is Selected")
@@ -99,6 +122,7 @@ router.post('/', async(req,res) => {
             res.status(450).send("No Data Found")
             return 
         }
+        return
     }
 
     //IF USER SELECTS BOTH YOJANA AND STATUS
@@ -117,7 +141,7 @@ router.post('/', async(req,res) => {
                 return
             }
         });
-
+        return
     }
 
     //if User Selects both Yojana and Identifier 
@@ -157,7 +181,7 @@ router.post('/', async(req,res) => {
             res.status(450).send("No Data Found")
             return 
         }
-
+        return
     }
 
     //IF USER SELECTS STATUS AND IdentifierID
@@ -197,7 +221,7 @@ router.post('/', async(req,res) => {
             res.status(450).send("No Data Found")
             return 
         }
-
+        return
     }
 
     //When user selects all three parameters
@@ -237,26 +261,10 @@ router.post('/', async(req,res) => {
             res.status(450).send("No Data Found")
             return 
         }
+        return
     }
 
-    if(YojanaName == "All" && ApplicationStatus == "All" && IdentifierField == "All"){
-        //When none of the fields are selected
-        Users.find({}, function (err, docs){
-
-            if (err){
-                console.log(err);
-                res.status(450).send('Error')
-                return
-            }
-            else {
-                console.log(docs)
-                res.status(450).send(docs)
-                return
-            }
-        });
-
-
-    }
+    
 
 
     //res.status(201).send(req.body.identifierfield)
