@@ -30,6 +30,7 @@ const formSchema = new mongoose.Schema({
     status: { type: String, default: "Applied"},
     description: String,
     benificiaryMobNumber: String,
+    benificiaryName: String,  
     registringFor: String,
 });
 var Users = mongoose.model("Users", formSchema);
