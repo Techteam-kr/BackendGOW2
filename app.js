@@ -52,6 +52,9 @@ app.use('/adminlogin', adminLogin)
 const searchForms = require('./routers/searchForms')
 app.use('/searchForms', searchForms)
 
+const searchFormsRedone = require('./routers/searchFormsRedone')
+app.use('/searchFormsRedone', searchFormsRedone)
+
 
 
 app.listen(9002, () => {
