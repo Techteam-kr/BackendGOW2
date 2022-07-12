@@ -13,19 +13,10 @@ mongoose.connect('mongodb://localhost:27017/applicants', {
 
 router.post('/', async(req,res) => {
 
-    //Accept All Three Parameters Yojana Name, Status and FormId/MobileNo
-
-   // console.log(identifierfield)
-   // console.log(req.body.applicationStatus)
-    //identifierfield can be Form ID or Mobile NO
-   // console.log(req.body.identifierfield)
-
     YojanaName = req.body.yojanaName;
     ApplicationStatus = req.body.applicationStatus;
     //IdentifierField can be both ApplicationID and Mobile No
     IdentifierField = req.body.identifierfield;
-
-
 
     if(YojanaName == "All" && ApplicationStatus == "All" && IdentifierField == "All"){
         //When none of the fields are selected
@@ -47,7 +38,6 @@ router.post('/', async(req,res) => {
         return
 
     }
-
 
     //IF USER SElects only YOJANA
     if(ApplicationStatus == "All" && IdentifierField == "All"){
@@ -264,10 +254,6 @@ router.post('/', async(req,res) => {
         return
     }
 
-    
-
-
-    //res.status(201).send(req.body.identifierfield)
 })
 
 module.exports = router
