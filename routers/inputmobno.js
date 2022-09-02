@@ -41,7 +41,7 @@ router.post('/', async(req,res) => {
             message: 'Dear User, Your One Time Password (OTP) is '+ val +' Government on Wheels'
         }),
         headers: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8' 
         }
       })
 
